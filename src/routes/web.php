@@ -25,6 +25,8 @@ Route::get('/test',function() {//Route::get()の第一引数ではURLを指定�
 
 Route::get('/todo/create', 'TodoController@create')->name('todo.create');
 
-Route::post('/todo', 'TodoController@store')->name('todo.store');//登録用の値を送信するためHTTPメソッドはPOST・Laravelのルートにおいて、HTTPメソッドはこのようにRoute::HTTPメソッド名で表現できる
+Route::post('/todo', 'TodoController@store')->name('todo.store');
+/*登録用の値を送信するためHTTPメソッドはPOST・Laravelのルートにおいて、
+HTTPメソッドはこのようにRoute::HTTPメソッド名で表現できる*/
 
 ?>
