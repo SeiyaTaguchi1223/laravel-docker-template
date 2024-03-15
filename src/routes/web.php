@@ -18,6 +18,7 @@ Route::get('/todo/{id}', 'TodoController@show')->name('todo.show');//詳細表�
 Route::get('/todo/{id}/edit', 'TodoController@edit')->name('todo.edit');//編集用
 Route::put('/todo/{id}', 'TodoController@update')->name('todo.update');//更新用
 Route::delete('/todo/{id}', 'TodoController@delete')->name('todo.delete');//削除用
+Route::post('/todo/{id}/complete', 'TodoController@complete')->name('todo.complete');//完了用
 
 /*Laravelにおけるルートとは「このリクエストが来たら、この処理をする。」という定義
 第一引数ではURIを指定しており、ドメイン「http://localhost:8080/」 以降のパスを表しており、

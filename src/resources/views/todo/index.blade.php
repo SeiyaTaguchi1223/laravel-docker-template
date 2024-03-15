@@ -13,6 +13,9 @@
       @foreach ($todos as $todo)
       <!--foreach文を実行している-->
         <div class="d-flex">
+          <form action="{{ route('todo.complete', $todo->id) }}" class="px-3 my-auto todo-status-form">
+            <input type="checkbox" class="form-control todo-status-button" name="id" value={{ $todo->content }} @if ($todo->is_completed) checked @endif>
+          </form>
           <a href="{{ route('todo.show', $todo->id) }}" class="list-group-item list-group-item-action">
             {{ $todo->content }}
             <!--デベロッパーツールを見ると
@@ -24,4 +27,7 @@
     </div>
   </div>
 </div>
+
+{{-- 追加 --}}
+<script src="{{ asset('js/index.js') }}"></script>
 @endsection

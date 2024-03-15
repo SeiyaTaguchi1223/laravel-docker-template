@@ -104,4 +104,16 @@ class TodoController extends Controller
         $todo->delete();//var_dump、ddしたらnullが出た。deleteメソッドのリターンがboll型かnullで返すから、SoftDeleteクラスを作成したらtrueが返ってきた。
         return redirect()->route('todo.index');
     }
+
+    public function complete($id)
+    {
+        $todo = $this->todo->find($id);//complete()の引数で受け取った$idをもとに、対象のレコードを1件取得
+        $todo->is_completed = !$todo->is_completed;
+        /*右辺の記述の!で$todo->is_completedの結果を否定するようにする。
+        もともと$todo->is_completedがtrue（完了状態）であれば、false（未完了状態）になり、
+        false（未完了状態）であれば、true（完了状態）になる*/
+        $todo->save();//save()を用いてUPDATE文を実行してレコードの内容を更新
+        return response()->json(['is_completed' => $todo->is_completed]);
+        //上記で実装したToDoの完了時のレスポンスは"is_completed": trueで返される。
+    }
 }
