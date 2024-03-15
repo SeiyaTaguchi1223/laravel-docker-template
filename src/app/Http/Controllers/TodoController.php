@@ -101,8 +101,7 @@ class TodoController extends Controller
     public function delete($id)
     {
         $todo = $this->todo->find($id);//idに入っているデータ型はstring型で値は選んだデータのid、$todoはオブジェクト型。
-        $todo->delete();//var_dump、ddしたらnullが出た。deleteメソッドのリターンがboll型かnullで返すから
-        dd($todo->delete());
+        $todo->delete();//var_dump、ddしたらnullが出た。deleteメソッドのリターンがboll型かnullで返すから、SoftDeleteクラスを作成したらtrueが返ってきた。
         return redirect()->route('todo.index');
     }
 }
