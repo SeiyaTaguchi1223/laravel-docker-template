@@ -6,7 +6,8 @@
       <div class="card">
         <div class="card-header">ToDo作成</div>
         <div class="card-body">
-          <form method="POST" action="{{ route('todo.store') }}">
+          <form method="POST" action="{{ route('todo.store') }}"><!--PHPとエコーエスケープ処理３つ担っている、改行したいときなどでエスケープ処理を外す場合もある-->
+            <!--route('todo.store')はweb.phpで作成したname(todo.store)を呼び出している-->
             @csrf
             <div class="form-group row">
               <label for="name" class="col-md-4 col-form-label text-md-right">ToDo入力</label>

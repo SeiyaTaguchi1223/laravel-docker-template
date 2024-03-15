@@ -7,7 +7,9 @@
       <div class="card-header">ToDo編集</div>
       <div class="card-body">
         <form method="POST" action="{{ route('todo.update', $todo->id) }}">
+        <!--<form method="POST" action="http://localhost:8080/todo/1">-->
           @method('PUT')
+          <!--<input type="hidden" name="_method" value="PUT">-->
           @csrf
           <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">ToDo入力</label>

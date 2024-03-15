@@ -7,12 +7,20 @@
         ToDo詳細
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{ $todo->content }}</h5>
-        <p class="card-text">作成日時：{{ $todo->created_at }}</p>
-
+        <h5 class="card-title">{{ $todo->content }}</h5><!--デベロッパーツールでは選択したレコードのToDoの内容が記載-->
+          <p class="card-text">作成日時：{{ $todo->created_at }}</p>
         <div class="row">
           <div class="col-auto">
             <a href="{{ route('todo.edit', $todo->id) }}" class="btn btn-info">編集する</a>
+            <!--<a href="http://localhost:8080/todo/1/edit" class="btn btn-info">
+              第一引数はルートの名前、第二引数は渡されるパラメーターを表している。-->
+          </div>
+          <div class="col-auto">
+            <form method="POST" action="{{ route('todo.delete', $todo->id) }}">
+              @method('delete')
+              @csrf
+              <button type="submit" class="btn btn-danger">削除する</button>
+            </form>
           </div>
         </div>
       </div>
